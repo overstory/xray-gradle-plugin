@@ -1,0 +1,39 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+*.class
+
+# Package Files #
+*.jar
+!/gradle/wrapper/gradle-wrapper.jar
+!/intellij-xquery-rt/lib/*.jar
+*.war
+*.ear
+
+# Idea specific ones
+out/
+build/
+sdk/
+.gradle/
+.idea/
+*.iml
+*.ipr
+*.iws
+.shelf/
+
+.DS_Store
+
+z
+zz
+z.*
+zz.*
+marklogic-intellij-plugin.zip
+
+### Terraform ###
+terraform/vars/*creds.tfvars
+.terraform
+*tfstate.backup
+
+# Local application config
+application.properties
+
+# Logs
+logs
