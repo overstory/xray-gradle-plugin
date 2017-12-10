@@ -1,0 +1,57 @@
+
+apply plugin: 'groovy'
+apply plugin: 'maven-publish'
+
+buildscript {
+	repositories {
+		jcenter()
+		mavenCentral()
+		maven {
+			url uri('../repo')
+		}
+	}
+}
+
+repositories {
+	jcenter()
+	mavenCentral()
+}
+
+dependencies {
+	compile gradleApi()
+	compile localGroovy()
+	compile 'io.github.http-builder-ng:http-builder-ng-core:1.0.+'
+}
+
+task apiJar (type: Jar) {
+	baseName "xray-plugin"
+	from sourceSets.main.output
+}
+task sourceJar(type: Jar) {
+	from sourceSets.main.allJava
+}
+
+publishing {
+	repositories {
+		maven {
+			url "$rootDir/localrepo"
+		}
+	}
+	publications {
+		plugin (MavenPublication) {
+			groupId 'overstory.gradle'
+			artifactId 'xray-plugin'
+			version '1.0'
+
+			artifact apiJar
+		}
+		pluginSrc (MavenPublication) {
+			groupId 'overstory.gradle'
+			artifactId 'xray-plugin'
+			version '1.0'
+
+			artifact sourceJar
+		}
+	}
+}
+

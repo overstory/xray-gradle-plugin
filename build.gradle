@@ -1,8 +1,9 @@
-apply plugin: 'groovy'
 
-dependencies {
-	compile gradleApi()
-	compile localGroovy()
+buildscript {
+	repositories {
+		jcenter()
+		mavenCentral()
+	}
 }
 
 // ------------------------------
@@ -10,5 +11,4 @@ dependencies {
 task wrapper (type: Wrapper) {
 	gradleVersion = '4.3.1'
 }
-
 
