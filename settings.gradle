@@ -1,1 +1,10 @@
-include 'plugin', 'test-project	'
+pluginManagement {
+	repositories {
+		maven {
+			url "$rootDir/localrepo".toString()
+		}
+		gradlePluginPortal()
+	}
+}
+
+include 'plugin', 'test-project'

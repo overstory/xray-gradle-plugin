@@ -28,7 +28,7 @@ class XRayTask extends DefaultTask
 	public Map<String, String> parameters = [:]        // XRay query params for dir, module, etc.  Not settable by properties.  Format is always forced to 'xml'.
 	public boolean outputXUnit = Boolean.parseBoolean (getPropertyWithDefault ('xray.output-xunit', 'true'))        // set false to suppress JUnit-style output
 
-	static String markLogicErrorNS = 'http://marklogic.com/xdmp/error'
+	static final String markLogicErrorNS = 'http://marklogic.com/xdmp/error'
 	private static final Map<String, String> colors = [failed: '\033[31m', error: '\033[1;31m', passed: '\033[32m', ignored: '\033[33m']
 
 	@TaskAction
@@ -51,7 +51,7 @@ class XRayTask extends DefaultTask
 	{
 		String uriString = "${scheme}://${host}:${port}${path}"
 
-		println "XRay tests starting on ${uriString}"
+		println "Running XRay tests on ${uriString}"
 
 		HttpBuilder http = HttpBuilder.configure {
 			request.uri = uriString

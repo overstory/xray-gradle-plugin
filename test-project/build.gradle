@@ -1,17 +1,15 @@
 
-apply plugin: 'groovy'
-apply plugin: 'xray'
-
-repositories {
-	jcenter()
-	mavenCentral()
-	maven {
-		url "$rootDir/localrepo"
+buildscript {
+	repositories {
+		jcenter()
+		mavenCentral()
+		maven {
+			url "$rootDir/localrepo"
+		}
 	}
 }
 
-dependencies {
-	compile 'overstory.gradle:xray-plugin"1.0'
+plugins {
+	id 'uk.co.overstory.xray' version '1.0'
 }
-
 
