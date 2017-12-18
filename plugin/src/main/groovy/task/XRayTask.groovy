@@ -188,7 +188,7 @@ class XRayTask extends DefaultTask
 		def xml = builder.bind {
 			mkp.declareNamespace (error: markLogicErrorNS)
 
-			String suiteName = m.'@path'.text().replace ('.', '_').replace ('-', '_').replace ('/', '.').substring (1)
+			String suiteName = 'xray.' + m.'@path'.text().replace ('.', '_').replace ('-', '_').replace ('/', '.').substring (1)
 			String suiteTimeTotal = sumTestTimes (m)
 
 			it.testsuite (name: suiteName, tests: m.'@total'.text(), errors: m.'@error'.text(), failures: m.'@failed'.text(), skipped: m.'@ignored'.text(), hostname: hostName, time: suiteTimeTotal, timestamp: timestamp) {

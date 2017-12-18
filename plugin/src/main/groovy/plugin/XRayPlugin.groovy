@@ -69,19 +69,21 @@ XRay project for details:
 
 \thttps://github.com/robwhitby/xray
 
-In the build.gradle file, add the following (or add to your existing plugins{} section:
+In the build.gradle file, add the following (or add to your existing plugins{} block):
 
 \tplugins {
-\t\tid uk.co.overstory.xray
+\t\tid 'uk.co.overstory.xray' version '1.0' 
 \t}
 
 That's it.  The XRay plugin will apply the 'java' plugin if it is not already present, to define
-the 'test' build task.  It will also set itself up a dependency for 'test' so that it will always
-run before any other unit tests.
+the 'test' build task.  It will also set itself up as a dependency for 'test' so that it will always
+be the first batch of tests to run.
+
+Check the plugin page on plugins.gradle.org to discover the latest version: https://plugins.gradle.org/plugin/uk.co.overstory.xray
 
 You can also just run the 'xray' task directly.
 
-This will run the XRay tests with defaults, or the property settings found in scope.  To customize
+This plugin will run the XRay tests with defaults, or the property settings found in scope.  To customize
 the XRay runner, set the following properties appropriately in gradle.properties, or \$HOME/.gradle/gradle-properties,
 or as -Pname=value parameters on the Gradle command line:
 
@@ -91,14 +93,14 @@ or as -Pname=value parameters on the Gradle command line:
 \txray.path=/xray/
 \txray.user=
 \txray.password=
-\txray.quiet=true
 \txray.basic-auth=false
+\txray.quiet=true
 \txray.outputXUnit=true
 
 These are the defaults (user and password are empty by default).  If user/password are supplied, then HTTP digest
 credentials are applied to the request (or basic credentials if basic-auth is true).
 
-You can also specify settings directly in your build.gradle by configuring the task like this.
+You can also specify settings directly in your build.gradle by configuring the xray task like this:
 
 \txray {
 \t\thost = 'dev.mycompany.com'
@@ -108,6 +110,7 @@ You can also specify settings directly in your build.gradle by configuring the t
 \t}
 
 Created December 2017 by Ron Hitchens (ron@overstory.co.uk, @ronhitchens, @overstory, http://overstory.co.uk)
+https://plugins.gradle.org/plugin/uk.co.overstory.xray, https://github.com/overstory/xray-gradle-plugin
 
 """
 }

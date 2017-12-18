@@ -24,7 +24,8 @@ buildscript {
 
 plugins {
 	id 'groovy'
-	id 'java-gradle-plugin'
+	id 'com.gradle.plugin-publish' version '0.9.9'	// For publishing to plugin.gradle.org
+	id 'java-gradle-plugin'				// for publishing to local repo
 	id 'maven-publish'
 }
 
@@ -41,6 +42,10 @@ dependencies {
 
 group = 'uk.co.overstory.xray'
 version = '1.0'
+
+
+// ----------------------------------------------------------------------------------
+// Publishing to local Maven repo for dev/testing
 
 gradlePlugin {
 	plugins {
@@ -62,6 +67,24 @@ publishing {
 	repositories {
 		maven {
 			url "$rootDir/localrepo"
+		}
+	}
+}
+
+// ----------------------------------------------------------------------------------
+// For publishing to plugins.gradle.org, requires API keys in local properties to work
+
+pluginBundle {
+	website = 'http://overstory.co.uk/'
+	vcsUrl = 'https://github.com/overstory/xray-gradle-plugin'
+	description = 'A plugin to Run XRay Tests from Gradle along with other tests in the Java/Groovy \'test\' task.'
+
+	plugins {
+		xray {
+			id = group
+			version = version
+			displayName = 'XRay Runner Plugin'
+			tags = ['xray', 'XQuery', 'MarkLogic', 'testing', 'unittests']
 		}
 	}
 }
