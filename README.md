@@ -10,7 +10,7 @@ a `plugins` block, like this:
 
 ```$groovy
 plugins {
-	id: 'uk.co.overstory.xray' version '1.0'
+	id: 'uk.co.overstory.xray' version '1.0.1'
 }
 ```
 

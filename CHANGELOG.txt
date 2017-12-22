@@ -1,0 +1,8 @@
+
+Release 1.0  (2017-12-18)
+	Initial published release, derived from original xray.gradle project.
+
+Release 1.0.1  (2018-12-21)
+	Minor bug fix to change default XRay invocation path from '/xray' to '/xray/'
+	This makes it more likely to work by default with a vanilla XRay install
+

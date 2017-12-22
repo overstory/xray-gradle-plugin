@@ -42,7 +42,7 @@ class XRayTask extends DefaultTask
 	@Input String scheme = getPropertyWithDefault ('xray.scheme', 'http')
 	@Input String host = getPropertyWithDefault ('xray.hostname', 'localhost')
 	@Input int port = Integer.parseInt (getPropertyWithDefault('xray.port', '1234'))
-	@Input String path = getPropertyWithDefault ('xray.path', '/xray')// the path to invoke xray/index.xqy on the appserver
+	@Input String path = getPropertyWithDefault ('xray.path', '/xray/')// the path to invoke xray/index.xqy on the appserver
 	@Input String user = getPropertyWithDefault ('xray.user', null)
 	@Input String password = getPropertyWithDefault ('xray.password', null)
 	@Input boolean basicAuth = Boolean.parseBoolean (getPropertyWithDefault ('xray.basic-auth', 'false'))

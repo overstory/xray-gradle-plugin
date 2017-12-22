@@ -41,8 +41,7 @@ dependencies {
 }
 
 group = 'uk.co.overstory.xray'
-version = '1.0'
-
+version = '1.0.1'
 
 // ----------------------------------------------------------------------------------
 // Publishing to local Maven repo for dev/testing

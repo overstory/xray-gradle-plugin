@@ -72,7 +72,7 @@ XRay project for details:
 In the build.gradle file, add the following (or add to your existing plugins{} block):
 
 \tplugins {
-\t\tid 'uk.co.overstory.xray' version '1.0' 
+\t\tid 'uk.co.overstory.xray' version '1.0.1' 
 \t}
 
 That's it.  The XRay plugin will apply the 'java' plugin if it is not already present, to define
