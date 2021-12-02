@@ -47,6 +47,9 @@ processResources {
 group = 'uk.co.overstory.xray'
 version = '1.0.2'
 
+sourceCompatibility = "8"
+targetCompatibility = "8"
+
 // ----------------------------------------------------------------------------------
 // Publishing to local Maven repo for dev/testing
 
