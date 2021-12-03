@@ -35,13 +35,20 @@ repositories {
 }
 
 dependencies {
-	compile gradleApi()
-	compile localGroovy()
-	compile 'io.github.http-builder-ng:http-builder-ng-core:1.0.+'
+	implementation gradleApi()
+	implementation localGroovy()
+	implementation 'io.github.http-builder-ng:http-builder-ng-core:1.0.+'
+}
+
+processResources {
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 group = 'uk.co.overstory.xray'
-version = '1.0.1'
+version = '1.0.2'
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
 
 // ----------------------------------------------------------------------------------
 // Publishing to local Maven repo for dev/testing

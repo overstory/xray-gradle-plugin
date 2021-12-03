@@ -31,6 +31,7 @@ import groovyx.net.http.HttpBuilder
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Internal
+import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.TaskExecutionException
 
@@ -43,12 +44,19 @@ class XRayTask extends DefaultTask
 	@Input String host = getPropertyWithDefault ('xray.hostname', 'localhost')
 	@Input int port = Integer.parseInt (getPropertyWithDefault('xray.port', '1234'))
 	@Input String path = getPropertyWithDefault ('xray.path', '/xray/')// the path to invoke xray/index.xqy on the appserver
-	@Input String user = getPropertyWithDefault ('xray.user', null)
-	@Input String password = getPropertyWithDefault ('xray.password', null)
+	@Optional @Input String user = getPropertyWithDefault ('xray.user', null)
+	@Optional @Input String password = getPropertyWithDefault ('xray.password', null)
+
 	@Input boolean basicAuth = Boolean.parseBoolean (getPropertyWithDefault ('xray.basic-auth', 'false'))
+	@Internal boolean getBasicAuth = this.basicAuth // Gradle 7 requires that there are not both isXxx and getXxx available to it, so we need to make one internal
+
 	@Input boolean quiet = Boolean.parseBoolean (getPropertyWithDefault ('xray.quiet', 'false'))// set true to suppress passing tests
+	@Internal boolean getQuiet = this.quiet
+
 	@Input Map<String, String> parameters = [:]	// XRay query params for dir, module, etc.  Not settable by properties.  Format is always forced to 'xml'.
+
 	@Input boolean outputXUnit = Boolean.parseBoolean (getPropertyWithDefault ('xray.output-xunit', 'true'))	// set false to suppress JUnit-style output
+	@Internal boolean getOutputXUnit = this.outputXUnit
 
 	@Internal final String timestamp = LocalDateTime.now().format (DateTimeFormatter.ISO_LOCAL_DATE_TIME)
 	static final String hostName = InetAddress.localHost.getHostName()
