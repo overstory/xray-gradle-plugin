@@ -24,7 +24,7 @@ buildscript {
 
 plugins {
 	id 'groovy'
-	id 'com.gradle.plugin-publish' version '0.9.9'	// For publishing to plugin.gradle.org
+	id 'com.gradle.plugin-publish' version '0.18.0'	// For publishing to plugin.gradle.org
 	id 'java-gradle-plugin'				// for publishing to local repo
 	id 'maven-publish'
 }
