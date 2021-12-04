@@ -24,4 +24,4 @@ pluginManagement {
 	}
 }
 
-include 'plugin', 'test-project'
+include 'plugin' //, 'test-project'

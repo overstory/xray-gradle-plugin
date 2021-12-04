@@ -10,7 +10,7 @@ a `plugins` block, like this:
 
 ```$groovy
 plugins {
-	id: 'uk.co.overstory.xray' version '1.0.1'
+	id: 'uk.co.overstory.xray' version '1.0.2'
 }
 ```
 
@@ -60,7 +60,7 @@ This and other information can be printed out by running the `xray-help` task.
 ### XRay Installation
 
 This plugin invokes the XRay XQuery unit testing framework, which must be installed and invokable on an
-HTTP appserver.  The default URL is `http://localhost:1234/xray/` (see properties below).  See the
+HTTP appserver.  The default URL is `http://localhost:1234/xray/` (see properties above).  See the
 XRay project for details and installation instructions:
 
 > [https://github.com/robwhitby/xray](https://github.com/robwhitby/xray)

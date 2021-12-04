@@ -6,3 +6,5 @@ Release 1.0.1  (2018-12-21)
 	Minor bug fix to change default XRay invocation path from '/xray' to '/xray/'
 	This makes it more likely to work by default with a vanilla XRay install
 
+Release 1.0.2  (2021-12-03)
+	Minor changes for compatibility with Gradle 7, contributed by Inigo Surguy of 67 Bricks.

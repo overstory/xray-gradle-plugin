@@ -25,6 +25,10 @@ buildscript {
 	}
 }
 
+// This will look in the Repos listed above.  When developing,
+// the 'publish' task must be run to build and publish to the
+// local repo.  Comment out this project in settings.gradle
+// if this version has not yet been published.
 plugins {
 	id 'uk.co.overstory.xray' version '1.0.2'
 }

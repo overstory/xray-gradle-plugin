@@ -43,12 +43,12 @@ class XRayTask extends DefaultTask
 	@Input String scheme = getPropertyWithDefault ('xray.scheme', 'http')
 	@Input String host = getPropertyWithDefault ('xray.hostname', 'localhost')
 	@Input int port = Integer.parseInt (getPropertyWithDefault('xray.port', '1234'))
-	@Input String path = getPropertyWithDefault ('xray.path', '/xray/')// the path to invoke xray/index.xqy on the appserver
+	@Input String path = getPropertyWithDefault ('xray.path', '/xray/')	// the path to invoke xray/index.xqy on the appserver
 	@Optional @Input String user = getPropertyWithDefault ('xray.user', null)
 	@Optional @Input String password = getPropertyWithDefault ('xray.password', null)
 
 	@Input boolean basicAuth = Boolean.parseBoolean (getPropertyWithDefault ('xray.basic-auth', 'false'))
-	@Internal boolean getBasicAuth = this.basicAuth // Gradle 7 requires that there are not both isXxx and getXxx available to it, so we need to make one internal
+	@Internal boolean getBasicAuth = this.basicAuth 	// Gradle 7 requires that there are not both isXxx and getXxx available to it, so we need to make one internal
 
 	@Input boolean quiet = Boolean.parseBoolean (getPropertyWithDefault ('xray.quiet', 'false'))// set true to suppress passing tests
 	@Internal boolean getQuiet = this.quiet
